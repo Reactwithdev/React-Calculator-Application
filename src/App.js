@@ -1,26 +1,45 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import GetUserList from './component/GetUserList';
-
+import { useRef } from 'react';
+import { useEffect } from 'react';
 function App() {
+  const [result,setResolt]=useState("")
+  const inputRef =useRef(null);
+
+
+  useEffect(()=>inputRef.current.focus())
   return (
-    <div className="App">
-      <header className="App-header">
-        <GetUserList/>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='calc-app'>
+        <form>
+          <input type="rext"  value={result} ref={inputRef}/>
+        </form>
+        <div className='keypad'>
+          <button id="clear">CLEAR</button>
+          <button id="backspace">C</button>
+          <button id="">+</button>
+          <button id="">7</button>
+          <button id="">8</button>
+          <button id="" >9</button>
+          <button id="">-</button>
+          <button id="">4</button>
+          <button id="">5</button>
+          <button id="">6</button>
+          <button id="">*</button>
+          <button id="">1</button> 
+          <button id="">2</button>
+          <button id="">3</button>
+          <button id="">/</button>
+          <button id="">0</button>
+          <button id="">.</button>
+          <button id="result"> Result</button>
+         
+
+
+
+        </div>
+      </div>
+    </>
   );
 }
 
