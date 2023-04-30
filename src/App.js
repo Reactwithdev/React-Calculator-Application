@@ -2,6 +2,10 @@ import { useState } from 'react';
 import './App.css';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import * as math from 'mathjs';
+
+
+
 function App() {
   const [events, setEvents] = useState("")
   const inputRef = useRef(null);
@@ -22,15 +26,16 @@ function App() {
     setEvents("")
   }
 
-  const calculation=()=>{
-    try{
-setEvents(eval(events).toString());
-    }catch(error){
-      setEvents(Error);
 
+
+  const calculation = () => {
+    try {
+      const result = math.evaluate(events);
+      setEvents(result.toString());
+    } catch (error) {
+      setEvents('Error');
     }
-
-  }
+  };
 
   return (
     <>
